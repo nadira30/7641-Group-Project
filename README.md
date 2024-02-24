@@ -4,7 +4,7 @@
 
 As technology becomes more widespread and data grows in size and complexity, methods for interpreting advanced ML algorithms become paramount. Monti et al [7] showcase how Graph Neural Network can be applied to detect fake news by leveraging the structural information in social media graphs. The usage of graphs for real-life data is increasing given the flexibility and efficiency for this data structure to represent diverse datasets. GNN uses graph analysis by identifying a subset of nodes/features to explain the AI decision making process.  
 
-This project will utilize the publicly available Fake News dataset from this Deep Graph Library Python package[https://docs.dgl.ai/en/0.8.x/generated/dgl.data.FakeNewsDataset.html]. This dataset comprises labeled news articles with associated Twitter information.    
+This project will utilize the publicly available Fake News dataset from the [Deep Graph Library Python package](https://docs.dgl.ai/en/0.8.x/generated/dgl.data.FakeNewsDataset.html). This dataset comprises labeled news articles with associated Twitter information.    
 
 ## 2. Problem Definition: 
 
