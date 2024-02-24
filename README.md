@@ -106,7 +106,7 @@ For explainability, we propose the following evaluation metrics:
  <img src="{{ "_includes/GanttChart.png" | prepend: site.baseurl | prepend: site.url}}" alt="Gantt Chart" />
 ## Contribution Table 
  ![Contribution table](_includes/contribution_table.png)
-
+<img src="https://nadira30/7641-Group-Project/_includes/contribution_table.png" alt="Contribution Table" />
  
 
  
