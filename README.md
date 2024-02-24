@@ -102,8 +102,10 @@ For explainability, we propose the following evaluation metrics:
 8. GraphXAI repository: https://github.com/mims-harvard/GraphXAI 
 
 9. GNNExplainer : https://github.com/RexYing/gnn-model-explainer 
-
- 
+## Gantt Chart 
+ ![Gantt Chart](_includes/GanttChart.png)
+## Contribution Table 
+ ![Contribution table](_includes/contribution_table.png)
 
  
 
