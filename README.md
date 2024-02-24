@@ -1,12 +1,12 @@
  
 
-## 1. Introduction 
+## I. Introduction 
 
 As technology becomes more widespread and data grows in size and complexity, methods for interpreting advanced ML algorithms become paramount. Monti et al [7] showcase how Graph Neural Network can be applied to detect fake news by leveraging the structural information in social media graphs. The usage of graphs for real-life data is increasing given the flexibility and efficiency for this data structure to represent diverse datasets. GNN uses graph analysis by identifying a subset of nodes/features to explain the AI decision making process.  
 
 This project will utilize the publicly available Fake News dataset from the [Deep Graph Library Python package](https://docs.dgl.ai/en/0.8.x/generated/dgl.data.FakeNewsDataset.html). This dataset comprises labeled news articles with associated Twitter information.    
 
-## 2. Problem Definition: 
+## II. Problem Definition: 
 
 As existing ML models often lack transparency in their decision-making process, we are seeking to develop a robust and interpretable system for identifying fake news articles.   
 
@@ -23,7 +23,7 @@ The widespread dissemination of fake news poses a significant threat to various 
 By leveraging GNNs and explainability techniques, this project aims to produce a fake news detection system that contributes to the tackling of the challenges posed by fake news. 
 
  
-## 3. Methods : 
+## III. Methods : 
 
 GNNExplainer: Utilizes perturbation-based techniques, employing mean field variational approximation to minimize conditional entropy for extracting GNN explanations. 
 
@@ -49,7 +49,7 @@ PGMExplainer: Employs a probabilistic graphical model to calculate conditional p
 
 * Use SVMs as a baseline supervised learning model for comparison with the GNN model's performance. 
 
-## 4. (Potential) Results and Discussion:  
+## IV. (Potential) Results and Discussion:  
 
 For fake news detection, we propose the following evaluation metrics: 
 
@@ -83,27 +83,25 @@ For explainability, we propose the following evaluation metrics:
 * Expect final deliverable to capture linguistic and stylistic disparities between real and fake news. 
  
 
-## 5. References: 
+## V. References: 
 
-* Agarwal, C., Queen, O., Lakkaraju, H. et al. Evaluating explainability for graph neural networks. Sci Data 10, 144 (2023). https://doi.org/10.1038/s41597-023-01974-x 
+1. Agarwal, C., Queen, O., Lakkaraju, H. et al. Evaluating explainability for graph neural networks. Sci Data 10, 144 (2023). https://doi.org/10.1038/s41597-023-01974-x 
 
-* Castillo, C., Mendoza, M., & Poblete, B. (2011). Information credibility on Twitter. In Proceedings of the 20th international conference on World wide web (pp. 675-684). 
+2. Castillo, C., Mendoza, M., & Poblete, B. (2011). Information credibility on Twitter. In Proceedings of the 20th international conference on World wide web (pp. 675-684). 
 
-* Shu, K., Sliva, A., Wang, S., Tang, J., & Liu, H. (2017). Fake news detection on social media: A data mining perspective. ACM SIGKDD Explorations Newsletter, 19(1), 22-36.  
+3. Shu, K., Sliva, A., Wang, S., Tang, J., & Liu, H. (2017). Fake news detection on social media: A data mining perspective. ACM SIGKDD Explorations Newsletter, 19(1), 22-36.  
 
-* Sundararajan, M., Taly, A., & Yan, Q. (2017). Axiomatic Attribution for Deep Networks. International Conference on Machine Learning. 
+4. Sundararajan, M., Taly, A., & Yan, Q. (2017). Axiomatic Attribution for Deep Networks. International Conference on Machine Learning. 
 
-* Vu, M.N., & Thai, M.T. (2020). PGM-Explainer: Probabilistic Graphical Model Explanations for Graph Neural Networks. ArXiv, abs/2010.05788. 
+5. Vu, M.N., & Thai, M.T. (2020). PGM-Explainer: Probabilistic Graphical Model Explanations for Graph Neural Networks. ArXiv, abs/2010.05788. 
 
-* Ying, R., Bourgeois, D., You, J., Zitnik, M., & Leskovec, J. (2019). GNNExplainer: Generating Explanations for Graph Neural Networks. Advances in neural information processing systems, 32, 9240-9251 . 
+6. Ying, R., Bourgeois, D., You, J., Zitnik, M., & Leskovec, J. (2019). GNNExplainer: Generating Explanations for Graph Neural Networks. Advances in neural information processing systems, 32, 9240-9251 . 
 
-* Monti, Federico, et al. "Fake news detection on social media using geometric deep learning." arXiv preprint arXiv:1902.06673 (2019). 
+7. Monti, Federico, et al. "Fake news detection on social media using geometric deep learning." arXiv preprint arXiv:1902.06673 (2019). 
 
-* GraphXAI repository: https://github.com/mims-harvard/GraphXAI 
+8. GraphXAI repository: https://github.com/mims-harvard/GraphXAI 
 
-* GNNExplainer : https://github.com/RexYing/gnn-model-explainer 
-
-* Integrated Gradients: https://github.com/ankurtaly/Integrated-Gradients 
+9. GNNExplainer : https://github.com/RexYing/gnn-model-explainer 
 
  
 
