@@ -49,7 +49,7 @@ PGMExplainer: Employs a probabilistic graphical model to calculate conditional p
 
 * Use SVMs as a baseline supervised learning model for comparison with the GNN model's performance. 
 
-4. (Potential) Results and Discussion:  
+## 4. (Potential) Results and Discussion:  
 
 For fake news detection, we propose the following evaluation metrics: 
 
