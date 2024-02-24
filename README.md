@@ -103,8 +103,8 @@ For explainability, we propose the following evaluation metrics:
 
 9. GNNExplainer : https://github.com/RexYing/gnn-model-explainer 
 ## Gantt Chart 
- ![Gantt chart](https://gtvault-my.sharepoint.com/:i:/g/personal/ssushri3_gatech_edu/EYjSPYWeE_BGv8AVXdlUdHUB_2SDRJk0XhDDXAKm9NsCAQ?e=OtuTAt)
+ ![Gantt chart](https://drive.google.com/file/d/1ZZsvP8i1OdGNp4CMsPm3rObgUe3q4RcJ/view?usp=sharing)
 ## Contribution Table 
- ![Contribution table](https://gtvault-my.sharepoint.com/:i:/g/personal/ssushri3_gatech_edu/Eag1xzHbUetKhCsJSCUsVDMBoD-aUBKXYR6pCZ0hLRfqFQ?e=Tz7VG6)
+ ![Contribution table](https://drive.google.com/file/d/1uRAnwYxmsToRPHFqtJ6dgtz0tmwrU10R/view?usp=sharing)
 
  
