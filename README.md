@@ -1,18 +1,8 @@
- 
-
 ## I. Introduction 
 
-Our project focuses on the development of a machine learning model for Fake News vs Real News Classification. The project builds upon previous research in the field of natural language processing (NLP) and machine learning, drawing inspiration from state-of-the-art techniques such as BERT (Bidirectional Encoder Representations from Transformers) and deep learning architectures. Through a combination of feature engineering, model training, and evaluation, we seek to develop a classification model that achieves high accuracy and generalization performance across diverse news datasets. 
-
- 
-
-In addition to technical challenges, our project also addresses broader ethical and societal considerations surrounding the detection and classification of fake news. We recognize the importance of transparency, accountability, and responsible use of technology in combating misinformation and promoting media literacy. 
-
- 
-
-Ultimately, our project aims to contribute to the ongoing efforts to create a more trustworthy and reliable media landscape. 
-
-[Deep Graph Library Python package](https://docs.dgl.ai/en/0.8.x/generated/dgl.data.FakeNewsDataset.html)   
+Our project focuses on the development of a machine learning model for Fake News vs Real News Classification. The project builds upon previous research in the field of natural language processing (NLP) and machine learning, drawing inspiration from state-of-the-art techniques such as BERT (Bidirectional Encoder Representations from Transformers) and deep learning architectures. Through a combination of feature engineering, model training, and evaluation, we seek to develop a classification model that achieves high accuracy and generalization performance across diverse news datasets.
+In addition to technical challenges, our project also addresses broader ethical and societal considerations surrounding the detection and classification of fake news. We recognize the importance of transparency, accountability, and responsible use of technology in combating misinformation and promoting media literacy.
+Ultimately, our project aims to contribute to the ongoing efforts to create a more trustworthy and reliable media landscape.
 
 ## II. Litterature Review 
 
@@ -106,9 +96,138 @@ Our initial implementation will not include feature reduction techniques like Pr
 
 Note: Since BERT already performs dimensionality reduction, additional feature reduction might not be necessary in this specific case. However, it remains a potential area for future exploration. 
 
-VII. Machine Learning Algorithms Implemented: 
+## VII. Machine Learning Algorithms Implemented: 
 This section outlines the planned implementation of machine learning algorithms for the final report (Section 3b). 
 
+#### 1. BERT (Pre-trained - Implemented): 
 
+BERT, a pre-trained deep learning model, will be used for feature extraction. BERT excels at learning valuable representations of words and their relationships within text data. 
+Below is the high-level process that we followed: 
+* Clean and tokenize the text data. 
+* Feed the processed data into the pre-trained BERT model. 
+* Obtain informative features from BERT's output, capturing the semantic meaning of the text. 
+
+To construct our BERT model, we utilized the Hugging Face transformers library, leveraging the powerful BERT architecture pre-trained on vast amounts of text data. We initialized a BERT base model with uncased tokens (‘bert-base-uncased') and fine-tuned it for our specific task of Fake News or Real News Classification. The model consists of: 
+1. An input layer for tokenized sequences, followed by the pre-trained BERT layers.  
+2. We added a dropout layer for regularization and a dense layer with a sigmoid activation function for binary classification.  
+3. Then we loaded the pretrained weight of BERT and finetune it. The source of pretrained weights is called bert_news.h5. 
+4. The model was compiled using the Adam optimizer with a specified learning rate, and binary cross-entropy loss was used as the evaluation metric. 
+
+During training, we employed early stopping and model checkpointing techniques to prevent overfitting and save the best-performing model based on validation accuracy. This approach enabled us to develop a robust BERT model capable of accurately distinguishing between fake and real news articles. 
+
+#### 2. Logistic Regression (Planned): 
+
+Logistic regression is the planned classification model for distinguishing real from fake news. It will leverage the BERT-extracted features: 
+* The features will serve as input to the logistic regression model. 
+* The model will learn a decision boundary in the feature space, enabling it to classify new unseen text data as real or fake news. 
+
+#### 3. Support Vector Machines (SVM) (Planned): 
+
+SVMs are powerful supervised learning algorithms that can effectively classify data points into different categories. They excel at finding hyperplanes (decision boundaries) in high-dimensional feature spaces, which makes them well-suited for text classification tasks like fake news detection. 
+We think SVMs are a good fit for this use case because of the following: 
+* High-dimensional data: Fake news detection often involves analyzing textual data, which translates into high-dimensional feature spaces. SVMs can handle these complex spaces efficiently.
+* Non-linear decision boundaries: Fake news often employ manipulative language or obfuscation techniques. SVMs can learn non-linear decision boundaries to separate real and fake news data points even if the patterns aren't perfectly linear. 
+* Interpretability: SVMs offer a level of interpretability compared to complex deep learning models like BERT tying to our original goal of incorporating explainability into a black box neural network model. This can clarify the features the model uses to make predictions. 
+
+## VII. Results and Discussion:  
+#### Visualizations 
+
+We used the training set to perform exploratory analysis. First, we wanted to look at the word count for each news and see if there is difference between real and fake news. We can see in the below graph that most real news is within 1000 words, and the distribution of word count is skewed to the right. 
+#####Image word count distribution#####
+
+As for the fake news, we see some outliers from the below graph making it hard to interpret. So, we plot it again below with outlier (news that has more than 20,000 words) removed. 
+#####Image word count distribution#####
+
+The below graph shows fake news training dataset with outliers (>20,000 words removed) 
+#####Image word count distribution#####
+
+The histogram below depicts frequencies of titles based on title length (number of characters in title) for both real and fake news. 
+#####Image title length distribution#####
+
+The word cloud for real vs fake news based on news text is depicted below. We can see most of the real news is about COVID19 virus, and the common words are names of countries and other neutral words.
+#####Image word cloud#####
+
+A similar word cloud is obtained for real and fake news, but only based on the title and inserted below. The topics seem to be the same for fake news. However, it contains words that are distinguishable. For example, Bill Gates is spelled wrongly in some instances. Additionally, there are a few standalone letters such as “u”. 
+#####Image word cloud#####
+
+To gain better understanding of the sentiments across real vs fake news across titles as well as texts, their sentiments were analyzed, and their polarities are represented in the plots below. 
+#####Image sentiment analysis#####
+
+The plots below show the N-gram analysis conducted to obtain the top 10 n-gram phrases and / or words in real and fake news titles and texts respectively. 
+#####Image n-gram analysis#####
+
+The plot below shows clustering of word embeddings for real and fake news. Word2Vec is used to represent words in titles and texts as dense vectors. Clustering algorithm is used to cluster similar titles and texts together and visualize the clusters. 
+#####Image clustering#####
+
+Next we wanted to see the Top “k” word proportion of the real/fake news. In other words, we wanted to see how many of the words used in the news are from the top 10 common words, top 100, and so on. Our hypothesis was that since fake news are machine generated and it will likely use many high frequency words comparing to real news. 
+#####Image top k word proportion#####
+
+Our analysis confirmed our hypothesis, and we see from the above bar chart that the difference is significant only for the Top 1000 most frequently used words. 
+
+#### Quantitative Metrics
+
+After we trained the model, we evaluated the training set, the validation set, and the test set. We used the following metrics: 
+* Accuracy 
+* Precision,  
+* Recall  
+* F1 Score 
+* AUC (Area under the Curve) - to get a more thorough evaluation of our model 
+
+#### Evaluation Observations:
+
+We can see that we have about ~approx. 95.0 % accuracy for the training set and about 95.40 % accuracy for our validation set.  
+
+The prediction is on the augmented test set, but this needs to be translated to the prediction of the original text. Therefore, for each original text, we should average the probability of each subtext and obtain final prediction for that piece of news. 
+
+#### Analysis of 1+ Algorithm/Model 
+
+In this project, BERT is employed as a feature extractor. It takes raw text data as input and produces high-dimensional vectors as output, capturing the semantic meaning and context of the text. As expected, pre-trained on massive text corpora, BERT captured semantic relationships and nuances in language that might be difficult for simpler feature extraction techniques. Our metrics showed great results. Even AUC was shown hugging the top-left corner indicating that our model was performing well. If our planned implementation of the Logistic Regression model achieves high accuracy, precision, recall, and F1-score, it suggests BERT is capturing relevant information for fake news classification. We think that  
+
+Additionally, by learning a lower-dimensional representation of text, BERT can potentially improve the efficiency and performance of the final classification model (Logistic Regression).  
+
+We think that one of our key advantages of using BERT was using its pre-training on large corpora of text data. During pre-training, BERT learns to predict missing words in sentences, masked tokens, and sentence relationships, which imbues it with a robust understanding of language. This pre-trained knowledge is leveraged in the project by fine-tuning BERT on the specific task of fake news detection. Hence, we were able to get excellent metrics.  
+
+#### Potential Limitations (to Investigate with Logistic Regression): 
+
+BERT might not be specifically optimized for the task of fake news detection. While pre-trained on a large corpus, it might not capture the specific linguistic cues or patterns indicative of fake news. The complexity of BERT can lead to overfitting, especially with smaller datasets. 
+
+By implementing Logistic Regression and performing the suggested analyses, we can gain a more comprehensive understanding of BERT's effectiveness in this specific use case and identify potential areas for improvement
+ 
+#### Next Steps 
+
+1. Implement Logistic Regression:
+    a. Train and evaluate a Logistic Regression model using the features extracted by BERT.
+    b. Analyze its performance using metrics like accuracy, precision, recall, F1-score, and confusion matrix.
+    c. This will provide a quantitative assessment of how well BERT, combined with Logistic Regression, classifies real vs. fake news.
+2. Hyperparameter Tuning: Experiment with different hyperparameters for both BERT and Logistic Regression to potentially improve performance. 
+3. Comparison Baseline: Train a Logistic Regression model directly on the raw text data (without BERT) as a baseline.
+    a. Compare its performance with the model using BERT features to quantify the effectiveness of feature extraction by BERT. 
+
+
+## References: 
+
+1. Agarwal, C., Queen, O., Lakkaraju, H. et al. Evaluating explainability for graph neural networks. Sci Data 10, 144 (2023). https://doi.org/10.1038/s41597-023-01974-x
+2. Castillo, C., Mendoza, M., & Poblete, B. (2011). Information credibility on Twitter. In Proceedings of the 20th international conference on World wide web (pp. 675-684). 
+3. Conroy, N. K., Rubin, V. L., & Chen, Y. (2015). Automatic deception detection: Methods for finding fake news. Proceedings of the association for information science and technology, 52(1), 1-4. 
+4. Zhou, X., & Zafarani, R. (2019). Network-based fake news detection: A pattern-driven approach. ACM SIGKDD explorations newsletter, 21(2), 48-60. 
+5. Devlin, J., Chang, M. W., Lee, K., & Toutanova, K. (2018). Bert: Pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805. 
+6. Yang, J., Wang, M., Zhou, H., Zhao, C., Zhang, W., Yu, Y., & Li, L. (2020, April). Towards making the most of bert in neural machine translation. In Proceedings of the AAAI conference on artificial intelligence (Vol. 34, No. 05, pp. 9378-9385). 
+7. Shu, K., Sliva, A., Wang, S., Tang, J., & Liu, H. (2017). Fake news detection on social media: A data mining perspective. ACM SIGKDD Explorations Newsletter, 19(1), 22-36. 
+8. Sundararajan, M., Taly, A., & Yan, Q. (2017). Axiomatic Attribution for Deep Networks. International Conference on Machine Learning. 
+9. Vu, M.N., & Thai, M.T. (2020). PGM-Explainer: Probabilistic Graphical Model Explanations for Graph Neural Networks. ArXiv, abs/2010.05788. 
+10. Ying, R., Bourgeois, D., You, J., Zitnik, M., & Leskovec, J. (2019). GNNExplainer: Generating Explanations for Graph Neural Networks. Advances in neural information processing systems, 32, 9240-9251 . 
+11. Monti, Federico, et al. "Fake news detection on social media using geometric deep learning." arXiv preprint arXiv:1902.06673 (2019). 
+12. Zhang, X., & Ghorbani, A. A. (2020). An overview of online fake news: Characterization, detection, and discussion. Information Processing & Management, 57(2), 102025. 
+13. Jain, A., & Kasbe, A. (2018, February). Fake news detection. In 2018 IEEE International Students' Conference on Electrical, Electronics and Computer Science (SCEECS) (pp. 1-5). IEEE. 
+14. Reis, J. C., Correia, A., Murai, F., Veloso, A., & Benevenuto, F. (2019). Supervised learning for fake news detection. IEEE Intelligent Systems, 34(2), 76-81. 
+
+
+## Appendix A- Code references: 
+
+* [Code reference 1](https://stackoverflow.com/questions/65085991/bert-model-show-up-invalidargumenterror-condition-x-y-did-not-hold-element-wi)
+* [Code reference 2] https://colab.research.google.com/github/singularity014/BERT_FakeNews_Detection_Challenge/blob/master/Detect_fake_news.ipynb#scrollTo=oPz41H-zs-XN)
+* [GraphXAI repository]( https://github.com/mims-harvard/GraphXAI)
+* [GNNExplainer](https://github.com/RexYing/gnn-model-explainer)
+* [Integrated Gradients](https://github.com/ankurtaly/Integrated-Gradients)
 
  
