@@ -144,7 +144,7 @@ The below graph shows fake news training dataset with outliers (>20,000 words re
 
 The histogram below depicts frequencies of titles based on title length (number of characters in title) for both real and fake news. 
 
-![histogram_title_length.png](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/histogram_title_length.png.png)
+![histogram_title_length.png](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/histogram_title_length.png)
 
 The word cloud for real vs fake news based on news text is depicted below. We can see most of the real news is about COVID19 virus, and the common words are names of countries and other neutral words.
 
