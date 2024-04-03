@@ -145,23 +145,24 @@ The histogram below depicts frequencies of titles based on title length (number 
 #####Image title length distribution#####
 
 The word cloud for real vs fake news based on news text is depicted below. We can see most of the real news is about COVID19 virus, and the common words are names of countries and other neutral words.
-![fake](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_cloud.png)
-![real](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/real_cloud.png)
+![fake_real](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_real_cloud.png)
 
 A similar word cloud is obtained for real and fake news, but only based on the title and inserted below. The topics seem to be the same for fake news. However, it contains words that are distinguishable. For example, Bill Gates is spelled wrongly in some instances. Additionally, there are a few standalone letters such as “u”. 
-#####Image word cloud#####
+![fake_real2](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_real_cloud2.png)
 
 To gain better understanding of the sentiments across real vs fake news across titles as well as texts, their sentiments were analyzed, and their polarities are represented in the plots below. 
-#####Image sentiment analysis#####
+![sentiment](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/sentiment_distribution.png)
 
 The plots below show the N-gram analysis conducted to obtain the top 10 n-gram phrases and / or words in real and fake news titles and texts respectively. 
-#####Image n-gram analysis#####
+![n_gram](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/n_gram1.png)
+![n_gram2](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/n_gram2.png)
 
 The plot below shows clustering of word embeddings for real and fake news. Word2Vec is used to represent words in titles and texts as dense vectors. Clustering algorithm is used to cluster similar titles and texts together and visualize the clusters. 
-#####Image clustering#####
+![real_clustering](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/real_cluster.png)
+![fake_clustering](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_cluster.png)
 
 Next we wanted to see the Top “k” word proportion of the real/fake news. In other words, we wanted to see how many of the words used in the news are from the top 10 common words, top 100, and so on. Our hypothesis was that since fake news are machine generated and it will likely use many high frequency words comparing to real news. 
-#####Image top k word proportion#####
+![top_k](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/top_k_proportion.png)
 
 Our analysis confirmed our hypothesis, and we see from the above bar chart that the difference is significant only for the Top 1000 most frequently used words. 
 
