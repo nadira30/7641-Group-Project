@@ -209,6 +209,11 @@ By implementing Logistic Regression and performing the suggested analyses, we ca
 3. Comparison Baseline: Train a Logistic Regression model directly on the raw text data (without BERT) as a baseline.
     a. Compare its performance with the model using BERT features to quantify the effectiveness of feature extraction by BERT. 
 
+#### Gantt Chart:
+!(Gantt Chart)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/GanttChart.png]
+
+#### Contribution table:
+!(Contribution Table)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/contibution_table.png]
 
 ## References: 
 
