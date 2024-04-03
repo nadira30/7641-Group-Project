@@ -38,7 +38,7 @@ Here is a quick snapshot of the training dataset for real news (Please see the C
 ![image](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/2.png)
 
 Here is a quick snapshot of the training dataset for fake news (Please see the Colab notebook in GitHub repository for more details).
-!(image)[https://github.com/nadira30/7641-Group-Project/blob/main/_includes/2.png?raw=true]
+!(image)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/3.png]
 
 To train, validate, and evaluate the performance of our Fake News or Real News Classification model, we divided our dataset into three distinct subsets: training, validation, and testing. 
 
