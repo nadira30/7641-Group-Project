@@ -139,22 +139,26 @@ As for the fake news, we see some outliers from the below graph making it hard t
 ![img4](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/4.png)
 
 The below graph shows fake news training dataset with outliers (>20,000 words removed) 
+
 ![img5](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/5.png)
 
 The histogram below depicts frequencies of titles based on title length (number of characters in title) for both real and fake news. 
-#####Image title length distribution#####
+
+![histogram_title_length.png](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/histogram_title_length.png.png)
 
 The word cloud for real vs fake news based on news text is depicted below. We can see most of the real news is about COVID19 virus, and the common words are names of countries and other neutral words.
+
 ![fake_real](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_real_cloud.png)
 
 A similar word cloud is obtained for real and fake news, but only based on the title and inserted below. The topics seem to be the same for fake news. However, it contains words that are distinguishable. For example, Bill Gates is spelled wrongly in some instances. Additionally, there are a few standalone letters such as “u”. 
-![fake_real2](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_real_cloud2.png)
+
+![fake_real2](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_real2.png)
 
 To gain better understanding of the sentiments across real vs fake news across titles as well as texts, their sentiments were analyzed, and their polarities are represented in the plots below. 
+
 ![sentiment](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/sentiment_distribution.png)
 
 The plots below show the N-gram analysis conducted to obtain the top 10 n-gram phrases and / or words in real and fake news titles and texts respectively. 
-![n_gram](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/n_gram1.png)
 ![n_gram2](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/n_gram2.png)
 
 The plot below shows clustering of word embeddings for real and fake news. Word2Vec is used to represent words in titles and texts as dense vectors. Clustering algorithm is used to cluster similar titles and texts together and visualize the clusters. 
