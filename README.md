@@ -225,7 +225,7 @@ By implementing Logistic Regression and performing the suggested analyses, we ca
 ## Appendix A- Code references: 
 
 * [Code reference 1](https://stackoverflow.com/questions/65085991/bert-model-show-up-invalidargumenterror-condition-x-y-did-not-hold-element-wi)
-* [Code reference 2] https://colab.research.google.com/github/singularity014/BERT_FakeNews_Detection_Challenge/blob/master/Detect_fake_news.ipynb#scrollTo=oPz41H-zs-XN)
+* [Code reference 2](https://colab.research.google.com/github/singularity014/BERT_FakeNews_Detection_Challenge/blob/master/Detect_fake_news.ipynb#scrollTo=oPz41H-zs-XN)
 * [GraphXAI repository]( https://github.com/mims-harvard/GraphXAI)
 * [GNNExplainer](https://github.com/RexYing/gnn-model-explainer)
 * [Integrated Gradients](https://github.com/ankurtaly/Integrated-Gradients)
