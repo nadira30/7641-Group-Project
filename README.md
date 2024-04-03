@@ -172,12 +172,13 @@ Our analysis confirmed our hypothesis, and we see from the above bar chart that 
 
 #### Quantitative Metrics
 
+![results](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/results.png)
 After we trained the model, we evaluated the training set, the validation set, and the test set. We used the following metrics: 
-* Accuracy 
-* Precision,  
-* Recall  
-* F1 Score 
-* AUC (Area under the Curve) - to get a more thorough evaluation of our model 
+* Accuracy: 97%
+* Precision: 94.76%
+* Recall : 99.5%
+* F1 Score : 97.07%
+* AUC (Area under the Curve) - to get a more thorough evaluation of our model: 99.57%
 
 #### Evaluation Observations:
 
