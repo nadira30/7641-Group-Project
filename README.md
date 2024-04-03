@@ -213,7 +213,7 @@ By implementing Logistic Regression and performing the suggested analyses, we ca
 !(Gantt Chart)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/GanttChart.png]
 
 #### Contribution table:
-!(Contribution Table)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/contibution_table.png]
+!(Contribution Table)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/contribution_table.png]
 
 ## References: 
 
