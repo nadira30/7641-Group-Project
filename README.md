@@ -173,6 +173,7 @@ Our analysis confirmed our hypothesis, and we see from the above bar chart that 
 #### Quantitative Metrics
 
 ![results](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/result.png)
+
 After we trained the model, we evaluated the training set, the validation set, and the test set. We used the following metrics: 
 * Accuracy: 97%
 * Precision: 94.76%
