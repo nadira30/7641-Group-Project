@@ -35,10 +35,10 @@ There are 800 rows and 3 columns (url, title, text) for real and fake news news 
 
 Here is a quick snapshot of the training dataset for real news (Please see the Colab notebook in GitHub repository for more details). 
 
-############Image of the dataset####################
+![image](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/2.png)
 
 Here is a quick snapshot of the training dataset for fake news (Please see the Colab notebook in GitHub repository for more details).
-############Image of the dataset####################
+!(image)[https://github.com/nadira30/7641-Group-Project/blob/main/_includes/2.png?raw=true]
 
 To train, validate, and evaluate the performance of our Fake News or Real News Classification model, we divided our dataset into three distinct subsets: training, validation, and testing. 
 
@@ -133,19 +133,20 @@ We think SVMs are a good fit for this use case because of the following:
 #### Visualizations 
 
 We used the training set to perform exploratory analysis. First, we wanted to look at the word count for each news and see if there is difference between real and fake news. We can see in the below graph that most real news is within 1000 words, and the distribution of word count is skewed to the right. 
-#####Image word count distribution#####
+![img3](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/3.png)
 
 As for the fake news, we see some outliers from the below graph making it hard to interpret. So, we plot it again below with outlier (news that has more than 20,000 words) removed. 
-#####Image word count distribution#####
+![img4](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/4.png)
 
 The below graph shows fake news training dataset with outliers (>20,000 words removed) 
-#####Image word count distribution#####
+![img5](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/5.png)
 
 The histogram below depicts frequencies of titles based on title length (number of characters in title) for both real and fake news. 
 #####Image title length distribution#####
 
 The word cloud for real vs fake news based on news text is depicted below. We can see most of the real news is about COVID19 virus, and the common words are names of countries and other neutral words.
-#####Image word cloud#####
+![fake](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_cloud.png)
+![real](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/real_cloud.png)
 
 A similar word cloud is obtained for real and fake news, but only based on the title and inserted below. The topics seem to be the same for fake news. However, it contains words that are distinguishable. For example, Bill Gates is spelled wrongly in some instances. Additionally, there are a few standalone letters such as “u”. 
 #####Image word cloud#####
