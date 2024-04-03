@@ -210,10 +210,10 @@ By implementing Logistic Regression and performing the suggested analyses, we ca
     a. Compare its performance with the model using BERT features to quantify the effectiveness of feature extraction by BERT. 
 
 #### Gantt Chart:
-!(Gantt Chart)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/GanttChart.png]
+![Gantt Chart](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/GanttChart.png)
 
 #### Contribution table:
-!(Contribution Table)[https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/contribution_table.png]
+![Contribution Table](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/contribution_table.png)
 
 ## References: 
 
