@@ -182,8 +182,8 @@ After we trained the model, we evaluated the training set, the validation set, a
 * AUC (Area under the Curve) - to get a more thorough evaluation of our model: 99.57%
 
 #### Evaluation Observations:
-
-We can see that we have about ~approx. 95.0 % accuracy for the training set and about 95.40 % accuracy for our validation set.  
+![img](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/img.png)
+We can see that we have about ~approx. 96.0 % accuracy for the training set and about 940 % accuracy for our validation set.  
 
 The prediction is on the augmented test set, but this needs to be translated to the prediction of the original text. Therefore, for each original text, we should average the probability of each subtext and obtain final prediction for that piece of news. 
 
