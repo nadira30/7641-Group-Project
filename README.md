@@ -201,8 +201,6 @@ The x-axis of the plot below displays the top features, while the y-axis represe
 
 ### IV.2 Quantitative Metrics
 
-![results](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/result.png)
-
 After we trained the model, we evaluated the training set, the validation set, and the test set. We used the following metrics: 
 * Accuracy: 97%
 * Precision: 94.76%
@@ -210,41 +208,92 @@ After we trained the model, we evaluated the training set, the validation set, a
 * F1 Score : 97.07%
 * AUC (Area under the Curve) - to get a more thorough evaluation of our model: 99.57%
 
-#### Evaluation Observations:
-![img](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/img.png)
-
+### IV.3 Evaluation Observations:
+#### IV.3.1 Bert Model 
 We can see that we have about ~approx. 96.0 % accuracy for the training set and about 940 % accuracy for our validation set.  
 
 The prediction is on the augmented test set, but this needs to be translated to the prediction of the original text. Therefore, for each original text, we should average the probability of each subtext and obtain final prediction for that piece of news. 
 
-#### Analysis of 1+ Algorithm/Model 
+![results](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/result.png)
+![img](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/img.png)
 
+#### IV.3.2 Logistic Regression
+Compared to the Bert Model, the logistic regression model performed lower with a test accuracy of approximately 96% and an F1 score of 96%. 
+
+##### Logistic Regression Metrics:  
+
+* Accuracy = 0.959 
+
+* Roc Auc Score = 0.99 
+
+* Precision = 0.951 
+
+* F1_score = 0.96 
+
+* Confusion Matrix
+  # Include image here
+
+ * ROC Curve
+   # include image here
+
+#### IV.3.3 Support Vector Machine SVM 
+Compared to the previous two models, the Support Vector Machine model performed better with a training accuracy of 99% and a test accuracy of approximately 97%. Unlike the logistic regression and Bert models, the SVM model had few data preprocessing and may explain the discrepancy in results.  
+
+##### SVM Metrics: 
+
+* Accuracy = 0.98 
+
+* Roc AUC Score = 0.98 
+
+* Precision = 0.97 
+
+* F1_score = 0.98 
+
+* Confusion matrix
+  # Include image here
+
+ * ROC Curve
+   # include image here
+
+### IV.4 Analysis of Bert Model 
 In this project, BERT is employed as a feature extractor. It takes raw text data as input and produces high-dimensional vectors as output, capturing the semantic meaning and context of the text. As expected, pre-trained on massive text corpora, BERT captured semantic relationships and nuances in language that might be difficult for simpler feature extraction techniques. Our metrics showed great results. Even AUC was shown hugging the top-left corner indicating that our model was performing well. If our planned implementation of the Logistic Regression model achieves high accuracy, precision, recall, and F1-score, it suggests BERT is capturing relevant information for fake news classification. We think that  
 
 Additionally, by learning a lower-dimensional representation of text, BERT can potentially improve the efficiency and performance of the final classification model (Logistic Regression).  
 
 We think that one of our key advantages of using BERT was using its pre-training on large corpora of text data. During pre-training, BERT learns to predict missing words in sentences, masked tokens, and sentence relationships, which imbues it with a robust understanding of language. This pre-trained knowledge is leveraged in the project by fine-tuning BERT on the specific task of fake news detection. Hence, we were able to get excellent metrics.  
 
-#### Potential Limitations (to Investigate with Logistic Regression): 
+### IV.5 Analysis of Logistic Regression Model: 
+The logistic regression model exhibits notable performance across multiple evaluation metrics, underscoring its efficacy in discriminating between real and fake news articles. With an accuracy of 95.94%, the model demonstrates a prominent level of overall correctness in its predictions. Moreover, precision stands at 95.06%, indicating the model's ability to accurately identify fake news instances among the positive predictions. A noteworthy recall score of 96.86% further accentuates the model's capacity to correctly detect a substantial portion of all actual positive instances in the dataset. 
 
-BERT might not be specifically optimized for the task of fake news detection. While pre-trained on a large corpus, it might not capture the specific linguistic cues or patterns indicative of fake news. The complexity of BERT can lead to overfitting, especially with smaller datasets. 
+Further evaluation through the receiver operating characteristic (ROC) curve and area under the curve (AUC) score reveals a robust discrimination ability, with an AUC score of 99.20%. This metric illustrates the model's proficiency in distinguishing between true positive and false positive rates across various threshold values. The confusion matrix analysis unveils minimal misclassifications, with only 13 instances out of 320 being incorrectly classified. These misclassifications primarily consist of false positives and false negatives, indicating areas where the model may benefit from refinement to minimize such errors. 
 
-By implementing Logistic Regression and performing the suggested analyses, we can gain a more comprehensive understanding of BERT's effectiveness in this specific use case and identify potential areas for improvement
- 
-#### Next Steps 
+In conclusion, the logistic regression model emerges as a potent tool for discerning between real and fake news articles, as evidenced by its impressive accuracy, precision, recall, and ROC AUC score. 
 
-1. Implement Logistic Regression:
-    a. Train and evaluate a Logistic Regression model using the features extracted by BERT.
-    b. Analyze its performance using metrics like accuracy, precision, recall, F1-score, and confusion matrix.
-    c. This will provide a quantitative assessment of how well BERT, combined with Logistic Regression, classifies real vs. fake news.
-2. Hyperparameter Tuning: Experiment with different hyperparameters for both BERT and Logistic Regression to potentially improve performance. 
-3. Comparison Baseline: Train a Logistic Regression model directly on the raw text data (without BERT) as a baseline.
-    a. Compare its performance with the model using BERT features to quantify the effectiveness of feature extraction by BERT. 
+### IV.6 Analysis of Support Vector Machine(SVM):
+
+### IV.7. Tradeoffs, Strengths, and Limitations: 
+
+In comparing the three approaches of BERT-Uncased, Logistic Regression, and Support Vector Machine (SVM) for fake news detection, we uncover distinct tradeoffs, strengths, and limitations.  
+
+* BERT-Uncased excels in capturing intricate semantic relationships within text, yielding robust performance. However, its resource-intensive nature and complexity limit scalability, particularly with large datasets.  
+
+* Logistic Regression, while computationally efficient and interpretable, struggles with capturing non-linear patterns inherent in language, potentially leading to suboptimal performance.  
+
+* SVM, leveraging a robust margin-based classification mechanism, offers competitive accuracy but suffers from scalability issues due to its quadratic time complexity concerning the number of samples. 
+
+### IV.8. Challenges and Future Work: 
+
+The visualization and metrics highlight BERT-Uncased's superior performance in discriminating between real and fake news, evident in its high accuracy, precision, recall, and F1 score. Logistic Regression and SVM, while exhibiting respectable performance, fall short in capturing the nuanced relationships present in text data, resulting in slightly lower metrics. The models' comparative analysis highlights BERT-Uncased as the top-performing approach, followed by SVM and Logistic Regression, indicating the importance of leveraging deep contextual embeddings for fake news detection tasks. 
+
+Moving forward, potential next steps involve fine-tuning hyperparameters, exploring ensemble methods to leverage the strengths of multiple models, and considering model distillation techniques to reduce BERT's computational overhead. Additionally, incorporating domain-specific features and conducting further analysis on misclassified instances can enhance model robustness and generalization capabilities, advancing fake news detection efforts. 
+
 
 #### Gantt Chart:
+# To be updated
 ![Gantt Chart](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/GanttChart.png)
 
 #### Contribution table:
+# To be updated
 ![Contribution Table](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/contribution_table.png)
 
 ## References: 
@@ -262,7 +311,12 @@ By implementing Logistic Regression and performing the suggested analyses, we ca
 11. Monti, Federico, et al. "Fake news detection on social media using geometric deep learning." arXiv preprint arXiv:1902.06673 (2019). 
 12. Zhang, X., & Ghorbani, A. A. (2020). An overview of online fake news: Characterization, detection, and discussion. Information Processing & Management, 57(2), 102025. 
 13. Jain, A., & Kasbe, A. (2018, February). Fake news detection. In 2018 IEEE International Students' Conference on Electrical, Electronics and Computer Science (SCEECS) (pp. 1-5). IEEE. 
-14. Reis, J. C., Correia, A., Murai, F., Veloso, A., & Benevenuto, F. (2019). Supervised learning for fake news detection. IEEE Intelligent Systems, 34(2), 76-81. 
+14. Reis, J. C., Correia, A., Murai, F., Veloso, A., & Benevenuto, F. (2019). Supervised learning for fake news detection. IEEE Intelligent Systems, 34(2), 76-81.
+15. [Statics1](https://www.bbc.com/news/technology-43344256 )
+16. [Statics2](https://journals.sagepub.com/doi/pdf/10.1177/2053951719843310#:~:text=Vosoughi%20et%20al.,the%20fastest%20and%20broadest%20spread)
+17. [Statics3](https://www.pewresearch.org/journalism/2016/12/15/many-americans-believe-fake-news-is-sowing-confusion/)
+18. [Statics4](https://www.rand.org/research/projects/truth-decay/fighting-disinformation.html)
+19. [Statics5](https://www.statista.com/topics/3251/fake-news/#topicOverview)
 
 
 ## Appendix A- Code references: 
