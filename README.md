@@ -111,52 +111,46 @@ We employed the following method for preparing the data for logistic regression 
 
 By executing these data cleaning steps, we ensured that the text data was appropriately formatted and ready for further processing, such as feature extraction and model training using logistic regression. 
 
+### III.2 BERT for Feature extraction, classification, training, and evaluation: 
 
-#### Feature Reduction (Not Implemented - Potential Future Exploration) 
-Our initial implementation will not include feature reduction techniques like Principal Component Analysis (PCA) or feature selection. However, these techniques can be explored in future iterations to: 
-* Potentially improve model performance by reducing dimensionality. 
-* Decrease training time. 
-* Identify and remove irrelevant features that might hinder classification. 
+We leverage Bidirectional Encoder Representations from Transformers (BERT), a powerful pre-trained language model, to encode textual data from news articles. Since BERT excels at capturing semantic relationships between words and contextual meaning within sentences, we chose it as a primary tool for detecting fake news. 
 
-Note: Since BERT already performs dimensionality reduction, additional feature reduction might not be necessary in this specific case. However, it remains a potential area for future exploration. 
+During training, the provided code utilizes a pre-trained BERT model (‘bert-base-uncased') to transform preprocessed news text into numerical representations. These representations act as features that capture the essence of the news content. 
 
-## VII. Machine Learning Algorithms Implemented: 
-This section outlines the planned implementation of machine learning algorithms for the final report (Section 3b). 
+#### Data Preprocessing Method Implemented for BERT: 
 
-#### 1. BERT (Pre-trained - Implemented): 
+We preprocessed our original text into input features BERT can read. The process is tokenizing and converting our original text into token IDs that can be read by the algorithm. The words are tokenized based on the vocabulary dictionary it was pretrained on (vocabulary size of 30,522 words), and unknown words are broken down into smaller words contained in the dictionary. Maximum sequence length is also specified so we can pad all sequences into the same length. However, please note that the final sequence length would be larger than specified since BERT tokenizer breaks unknown words into multiple small known words. 
 
-BERT, a pre-trained deep learning model, will be used for feature extraction. BERT excels at learning valuable representations of words and their relationships within text data. 
-Below is the high-level process that we followed: 
-* Clean and tokenize the text data. 
-* Feed the processed data into the pre-trained BERT model. 
-* Obtain informative features from BERT's output, capturing the semantic meaning of the text. 
+Since BERT algorithm can only accept sentence lengths up to 512 words, we need to preprocess our data (long news) to feed into the algorithm. To do so, we follow the idea from this paper and segment each of the text into multiple subtexts of no longer than 150 words. The subtexts will have some overlapping, specifically, the last 30 words for first subtext will be the first 30 words of the second subtext. 
 
-To construct our BERT model, we utilized the Hugging Face transformers library, leveraging the powerful BERT architecture pre-trained on vast amounts of text data. We initialized a BERT base model with uncased tokens (‘bert-base-uncased') and fine-tuned it for our specific task of Fake News or Real News Classification. The model consists of: 
-1. An input layer for tokenized sequences, followed by the pre-trained BERT layers.  
-2. We added a dropout layer for regularization and a dense layer with a sigmoid activation function for binary classification.  
-3. Then we loaded the pretrained weight of BERT and finetune it. The source of pretrained weights is called bert_news.h5. 
-4. The model was compiled using the Adam optimizer with a specified learning rate, and binary cross-entropy loss was used as the evaluation metric. 
+We incorporated several data preprocessing steps to prepare the news text data for BERT and logistic regression: 
 
-During training, we employed early stopping and model checkpointing techniques to prevent overfitting and save the best-performing model based on validation accuracy. This approach enabled us to develop a robust BERT model capable of accurately distinguishing between fake and real news articles. 
+* Text Cleaning: We removed punctuation, converted text to lowercase, and handled extra spaces to standardize the text format. This ensures consistent processing by BERT and avoids introducing noise due to formatting variations. 
 
-#### 2. Logistic Regression (Planned): 
+* Text Splitting: We split each news article into subtexts with a maximum length of 150 words. This step caters to the input requirements of BERT, which has limitations on the sequence length it can process effectively. 
 
-Logistic regression is the planned classification model for distinguishing real from fake news. It will leverage the BERT-extracted features: 
-* The features will serve as input to the logistic regression model. 
-* The model will learn a decision boundary in the feature space, enabling it to classify new unseen text data as real or fake news. 
+* BERT Tokenization: We use a pre-trained BERT tokenizer (‘bert-base-uncased') to convert text into numerical tokens (ids) that BERT understands. This allows BERT to process the textual data and extract meaningful features. 
 
-#### 3. Support Vector Machines (SVM) (Planned): 
+* Padding and Truncation: We padded shorter sequences with zeros and truncated longer sequences to a fixed length (‘max_seq_len’) to ensure consistent input size for BERT. This step ensures all inputs are compatible with the BERT model's architecture. 
 
-SVMs are powerful supervised learning algorithms that can effectively classify data points into different categories. They excel at finding hyperplanes (decision boundaries) in high-dimensional feature spaces, which makes them well-suited for text classification tasks like fake news detection. 
-We think SVMs are a good fit for this use case because of the following: 
-* High-dimensional data: Fake news detection often involves analyzing textual data, which translates into high-dimensional feature spaces. SVMs can handle these complex spaces efficiently.
-* Non-linear decision boundaries: Fake news often employ manipulative language or obfuscation techniques. SVMs can learn non-linear decision boundaries to separate real and fake news data points even if the patterns aren't perfectly linear. 
-* Interpretability: SVMs offer a level of interpretability compared to complex deep learning models like BERT tying to our original goal of incorporating explainability into a black box neural network model. This can clarify the features the model uses to make predictions. 
+Thus, by carefully preparing and padding our input data, we ensured that our Fake News or Real News Classification model received standardized inputs, allowing it to effectively learn and make accurate predictions on news articles of varying lengths and complexities. 
 
-## VII. Results and Discussion:  
-#### Visualizations 
+### III.3 Support Vector Machines (SVM): 
 
-We used the training set to perform exploratory analysis. First, we wanted to look at the word count for each news and see if there is difference between real and fake news. We can see in the below graph that most real news is within 1000 words, and the distribution of word count is skewed to the right. 
+
+ 
+
+#### Data Preprocessing Method Implemented for SVM:   
+
+* Text cleaning:  
+
+* Feature Extraction:  
+ 
+
+## IV. Results and Discussion:  
+###  IV.1 Visualizations 
+
+We used the training set to perform exploratory data analysis. First, we wanted to look at the word count for each news and see if there is a difference between real and fake news. We can see in the below graph that most real news is within 1000 words, and the distribution of word count is skewed to the right.  
 ![img3](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/3.png)
 
 As for the fake news, we see some outliers from the below graph making it hard to interpret. So, we plot it again below with outlier (news that has more than 20,000 words) removed. 
@@ -194,7 +188,18 @@ Next we wanted to see the Top “k” word proportion of the real/fake news. In 
 
 Our analysis confirmed our hypothesis, and we see from the above bar chart that the difference is significant only for the Top 1000 most frequently used words. 
 
-#### Quantitative Metrics
+#### Analysis of Feature Importance 
+We further extract the coefficients of the logistic regression and SVM models to identify the top 50 important features contributing to its predictions. By sorting the coefficients in descending order, the most influential features are determined. These features are then plotted on a bar chart, providing a visual representation of their importance. 
+
+The x-axis of the plot below displays the top features, while the y-axis represents their corresponding coefficients. This visualization offers valuable insights into which features have the most significant impact on the model's predictions. It helps interpret the model's decision-making process and aids in understanding the importance of different features from the news data, as well as helping in feature selection, dimensionality reduction, and improving the model’s performance by just focusing on the most important features.  
+ # Include images here 
+
+ #### Learning Curve 
+ We implemented a learning curve for the SVM model to visualize the validation and training score of the model for varying numbers of training samples. This can help us find out how much we benefit from adding more data whether the estimator suffers more from variance error or bias error.  
+
+ # Include image here 
+
+### IV.2 Quantitative Metrics
 
 ![results](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/result.png)
 
