@@ -28,9 +28,6 @@ Thus, the widespread dissemination of fake news poses a significant threat to va
 
 By leveraging BERT, Logistic Regression, and SVMs, this project aims to produce a fake news detection system that contributes to the tackling of the challenges posed by fake news. 
 
- 
-
-
 
 ### I.2 Literature Review 
 
@@ -66,6 +63,7 @@ Here is a quick snapshot of the training dataset for real news (Please see the C
 ![image](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/2.png)
 
 Here is a quick snapshot of the training dataset for fake news (Please see the Colab notebook in GitHub repository for more details).
+
 ![image](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/1.png)
 
 To train, validate, and evaluate the performance of our Fake News or Real News Classification model, we divided our dataset into three distinct subsets: training, validation, and testing. 
@@ -77,8 +75,7 @@ To train, validate, and evaluate the performance of our Fake News or Real News C
  
 ## II. Problem Definition
  
-
-Our goal is to develop a machine learning model capable of distinguishing between fake and real news articles. Given a dataset of news articles, the objective is to first identify real and fake news articles through data pre-processing, label them and then train a classification model to accurately identify the authenticity of unseen news articles as either fake or real. 
+Our goal is to develop a machine-learning model capable of distinguishing between fake and real news articles. Given a dataset of news articles, the objective is to first identify real and fake news articles through data pre-processing, label them and then train a classification model to accurately identify the authenticity of unseen news articles as either fake or real. 
 
 ### II.1 Scope: 
 We aim to use ML algorithms to perform fake news detection based on textual features only. What we do not cover in our project is verifying the authenticity of visual content other than text such as images and videos. Using the help of external sources, we built our code to solve the issue stated above (see appendix for code references). 
@@ -88,25 +85,32 @@ Our research initially focused on detecting fake news using structural and langu
 
 Shifting our focus allows us to provide a more specific solution to the broader issue of misinformation by classifying news articles as either fake or real, we aim to empower users to discern the authenticity of news sources and combat the spread of misinformation.
  
-## III. Methods: (BERT, Logistic regression, SVMs)
+## III. Methods: (BERT, Logistic regression, SVMs) 
+In this project, we aimed to develop a robust model for detecting fake news. We employed three different machine learning algorithms:  
+1. Logistic regression,  
+2. BERT (Bidirectional Encoder Representations from Transformers), and  
+3. Support Vector Machines (SVM).
+4. 
+This report focuses on the implementation and evaluation of logistic regression as the baseline model and comparing the results with BERT and SVM. 
 
-#### BERT for Feature extraction, classification, training and evaluation: 
+### III.1 Logistic Regression: 
 
-We leverage Bidirectional Encoder Representations from Transformers (BERT), a powerful pre-trained language model, to encode textual data from news articles. Since BERT excels at capturing semantic relationships between words and contextual meaning within sentences, we chose it as a primary tool for detecting fake news. 
-During training, the provided code utilizes a pre-trained BERT model (‘bert-base-uncased') to transform preprocessed news text into numerical representations. These representations act as features that capture the essence of the news content. 
+Logistic regression is a well-suited algorithm for binary classification tasks like real vs. fake news detection. We started with the hypothesis that it will learn a separating hyperplane between the two classes (real and fake) like the extracted BERT features. We used logistic regression to be used as a baseline and compare the results with BERT and SVM. New unseen news articles can then classify as real or fake based on their position relative to the learned hyperplane in the feature space. 
 
-#### Logistic Regression (To be implemented): 
-We also plan to use logistic regression to compare the results with BERT. Logistic regression is a well-suited algorithm for binary classification tasks like real vs. fake news detection. Our hypothesis is that it will learn a separating hyperplane between the two classes (real and fake) like the extracted BERT features. New unseen news articles can then classify as real or fake based on their position relative to the learned hyperplane in the feature space. 
+#### Data Preprocessing Method Implemented for Logistic Regression: 
 
-#### Data Preprocessing Method Implemented: 
-We preprocessed our original text into input features BERT can read. The process is basically tokenizing and converting our original text into token IDs that can be read by the algorithm. The words are tokenized based on the vocabulary dictionary it was pretrained on (vocabulary size of 30,522 words), and unknown words are broken down into smaller words contained in the dictionary. Maximum sequence length is also specified so we can pad all sequences into the same length. However, please note that the final sequence length would be larger than specified since BERT tokenizer breaks unknown words into multiple small known words. 
-Since BERT algorithm can only accept sentence length up to 512 words, we need to preprocess our data (long news) to feed into the algorithm. To do so, we follow the idea from this paper and segment each of the text into multiple subtexts of no longer than 150 words. The subtexts will have some overlapping, specifically, the last 30 words for first subtext will be the first 30 words of the second subtext. 
-We incorporated several data preprocessing steps to prepare the news text data for BERT and logistic regression: 
-* Text Cleaning: We removed punctuation, converted text to lowercase, and handled extra spaces to standardize the text format. This ensures consistent processing by BERT and avoids introducing noise due to formatting variations. 
-* Text Splitting: We split each news article into subtexts with a maximum length of 150 words. This step caters to the input requirements of BERT, which has limitations on the sequence length it can process effectively. 
-* BERT Tokenization: We use a pre-trained BERT tokenizer (‘bert-base-uncased') to convert text into numerical tokens (ids) that BERT understands. This allows BERT to process the textual data and extract meaningful features. 
-* Padding and Truncation: We padded shorter sequences with zeros and truncated longer sequences to a fixed length (‘max_seq_len’) to ensure consistent input size for BERT. This step ensures all inputs are compatible with the BERT model's architecture. 
-Thus, by carefully preparing and padding our input data, we ensured that our Fake News or Real News Classification model received standardized inputs, allowing it to effectively learn and make accurate predictions on news articles of varying lengths and complexities. 
+We employed the following method for preparing the data for logistic regression analysis. We have included the key steps as below:  
+
+* Text Cleaning Function: We implemented a robust text cleaning function to ensure the text data was standardized and free from unnecessary characters. This function removed apostrophes, special characters, and non-alphanumeric symbols from the text while also converting all text to lowercase. This step aimed to eliminate noise and ensure consistency in text representation. 
+
+* Stop word Removal: Stop words, commonly occurring words that add little value to the classification task, were removed from the text data. This included words such as "and," "the," and "is." By excluding stop words, we aimed to streamline the text data and focus on meaningful content relevant to the classification task. 
+
+* Tokenization and Word Count: We tokenize the text data, splitting it into individual words or tokens. Additionally, we calculated the word count for each text sample, providing insights into the distribution of text lengths within the dataset. Visualizations such as histograms were utilized to analyze the distribution of word counts across real and fake news samples. 
+
+* Word Cloud Visualization: To gain further insights into the most frequent words within real and fake news samples, we generated word cloud visualizations. These visualizations highlighted the most prominent words in each category, offering a glimpse into the vocabulary associated with real and fake news articles. 
+
+By executing these data cleaning steps, we ensured that the text data was appropriately formatted and ready for further processing, such as feature extraction and model training using logistic regression. 
+
 
 #### Feature Reduction (Not Implemented - Potential Future Exploration) 
 Our initial implementation will not include feature reduction techniques like Principal Component Analysis (PCA) or feature selection. However, these techniques can be explored in future iterations to: 
