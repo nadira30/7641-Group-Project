@@ -1,12 +1,40 @@
 ## I. Introduction 
 
-Our project focuses on the development of a machine learning model for Fake News vs Real News Classification. The project builds upon previous research in the field of natural language processing (NLP) and machine learning, drawing inspiration from state-of-the-art techniques such as BERT (Bidirectional Encoder Representations from Transformers) and deep learning architectures. Through a combination of feature engineering, model training, and evaluation, we seek to develop a classification model that achieves high accuracy and generalization performance across diverse news datasets.
-In addition to technical challenges, our project also addresses broader ethical and societal considerations surrounding the detection and classification of fake news. We recognize the importance of transparency, accountability, and responsible use of technology in combating misinformation and promoting media literacy.
-Ultimately, our project aims to contribute to the ongoing efforts to create a more trustworthy and reliable media landscape.
+Our project focuses on the development of a machine learning model for Fake News vs Real News Classification. The project builds upon previous research in the field of natural language processing (NLP) and machine learning, drawing inspiration from state-of-the-art techniques such as BERT (Bidirectional Encoder Representations from Transformers) and deep learning architectures. Through a combination of feature engineering, model training, and evaluation, we seek to develop a classification model that achieves high accuracy and generalization performance across diverse news datasets. 
 
-## II. Litterature Review 
+ 
 
-Researchers have explored various approaches to address this challenge, employing both traditional machine learning algorithms and advanced deep learning models to develop fake news detection systems.
+In addition to technical challenges, our project also addresses broader ethical and societal considerations surrounding the detection and classification of fake news. We recognize the importance of transparency, accountability, and responsible use of technology in combating misinformation and promoting media literacy. 
+
+ 
+
+Our project aims to contribute to the ongoing efforts to create a more trustworthy and reliable media landscape. 
+
+### I.1 Motivation: 
+
+ 
+
+Detecting fake news is crucial given its importance. MIT researchers found false news stories are 70% more likely to be retweeted than true stories (Vosoughi et al., 2018). Pew Research Center reports that 64% of Americans believe fake news causes confusion about current events (Barthel et al., 2016). The spread of misinformation costs the global economy an estimated $78 billion (about $240 per person in the US) annually, according to the BBC (BBC, 2018). RAND Corporation research suggests fake news amplifies political polarization and threatens democratic norms (RAND Corporation, 2018). Despite efforts, 30% of social media users encounter fake news weekly (Statista, 2022). Therefore, accurate text-based fake news detection models are essential to combat misinformation and protect democratic processes. 
+
+ 
+
+Thus, the widespread dissemination of fake news poses a significant threat to various aspects of society, including: 
+
+* Undermining trust in credible information sources. 
+
+* Misleadingly swaying individuals' opinions on critical issues. 
+
+* Fueling existing societal divides. 
+
+By leveraging BERT, Logistic Regression, and SVMs, this project aims to produce a fake news detection system that contributes to the tackling of the challenges posed by fake news. 
+
+ 
+
+
+
+### I.2 Literature Review 
+
+Researchers have explored various approaches to address this challenge, employing both traditional machine learning algorithms and advanced deep learning models to develop fake news detection systems.  
 
 Traditional Machine Learning Approaches:
 * Castillo et al.,[2] in 2011 and Conroy et al.,[3] in 2015 utilized algorithms like SVMs, Decision Trees, and Logistic Regression with handcrafted features to tackle fake news.
@@ -23,7 +51,7 @@ BERT and Transformer Models:
 * Devlin et al. [5] introduced BERT as a significant advance in fake new classification with its bidirectional training and attention mechanisms.
 * Demonstrated superior performance in understanding context and semantic relationships in text[6]. 
 
-## III. Dataset Description 
+## I.3 Dataset Description 
 
 Our data are Json files publicly available and stored on web; therefore, we download it via GCS storage APIs and convert it into pandas dataframe. We download the data in 4 files: 
 
@@ -47,28 +75,20 @@ To train, validate, and evaluate the performance of our Fake News or Real News C
 * Testing Dataset: The testing dataset served as the final benchmark to evaluate the model's performance after training and validation. It consisted of a separate set of news articles, again with labels indicating their authenticity. The model's predictions on the testing dataset were compared against the ground truth labels to assess its accuracy, precision, recall, and other performance metrics. This dataset provided valuable insights into the model's real-world effectiveness and its ability to accurately classify unseen news articles. 
 
  
-## IV. Problem Definition
-Our goal is to develop a machine learning model capable of distinguishing between fake and real news articles. Given a dataset of news articles, the objective is to first identify real and fake news articles through data pre-processing, labelling them and then training a classification model to accurately identify the authenticity of unseen news articles as either fake or real. 
+## II. Problem Definition
+ 
 
-#### Scope: 
-What we aim to do is fake news detection based on textual features. What we do not cover in our project is checking the truthfulness of content of an article/ fact. Using the help of external sources, we built our code to solve the issue stated above (see appendix for code references). 
+Our goal is to develop a machine learning model capable of distinguishing between fake and real news articles. Given a dataset of news articles, the objective is to first identify real and fake news articles through data pre-processing, label them and then train a classification model to accurately identify the authenticity of unseen news articles as either fake or real. 
 
-#### Change in Research Direction:
+### II.1 Scope: 
+We aim to use ML algorithms to perform fake news detection based on textual features only. What we do not cover in our project is verifying the authenticity of visual content other than text such as images and videos. Using the help of external sources, we built our code to solve the issue stated above (see appendix for code references). 
+
+### II.2 Change in Research Direction:
 Our research initially focused on detecting fake news using structural and language features without verifying content truthfulness and focusing more on user modelling because we realize that was a more challenging problem to solve and leveraged GNNs. Additionally, due to Twitter’s privacy laws, we could not view the dataset features necessary to utilize GNNs. Hence, we have refined our approach to concentrate on Fake News or Real News Classification using BERT. 
 
-Shifting our focus allows us to provide a more specific solution to the broader issue of misinformation. By classifying news articles as either fake or real, we aim to empower users to discern the authenticity of news sources and combat the spread of misinformation. 
-
-## V. Motivation: 
-
-The widespread dissemination of fake news poses a significant threat to various aspects of society, including: 
-
-* Undermining trust in credible information sources.
-* Misleadingly swaying individuals' opinions on critical issues.
-* Fueling existing societal divides.
-By leveraging BERT and supervised and unsupervised ML techniques, this project aims to produce a fake news detection system that contributes to the tackling of the challenges posed by fake news. 
-
+Shifting our focus allows us to provide a more specific solution to the broader issue of misinformation by classifying news articles as either fake or real, we aim to empower users to discern the authenticity of news sources and combat the spread of misinformation.
  
-## VI. Methods: (BERT and Logistic regression) 
+## III. Methods: (BERT, Logistic regression, SVMs)
 
 #### BERT for Feature extraction, classification, training and evaluation: 
 
