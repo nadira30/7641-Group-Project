@@ -192,12 +192,15 @@ Our analysis confirmed our hypothesis, and we see from the above bar chart that 
 We further extract the coefficients of the logistic regression and SVM models to identify the top 50 important features contributing to its predictions. By sorting the coefficients in descending order, the most influential features are determined. These features are then plotted on a bar chart, providing a visual representation of their importance. 
 
 The x-axis of the plot below displays the top features, while the y-axis represents their corresponding coefficients. This visualization offers valuable insights into which features have the most significant impact on the model's predictions. It helps interpret the model's decision-making process and aids in understanding the importance of different features from the news data, as well as helping in feature selection, dimensionality reduction, and improving the model’s performance by just focusing on the most important features.  
- # Include images here 
+
+![Feature Importance for Logistic Regression](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_importance.png)
+
+![Feature Importance for SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_svm.png)
 
  #### Learning Curve 
  We implemented a learning curve for the SVM model to visualize the validation and training score of the model for varying numbers of training samples. This can help us find out how much we benefit from adding more data whether the estimator suffers more from variance error or bias error.  
 
- # Include image here 
+![Learning Curve for SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/Learning_curve.png)
 
 ### IV.2 Quantitative Metrics
 
@@ -213,9 +216,16 @@ After we trained the model, we evaluated the training set, the validation set, a
 We can see that we have about ~approx. 96.0 % accuracy for the training set and about 940 % accuracy for our validation set.  
 
 The prediction is on the augmented test set, but this needs to be translated to the prediction of the original text. Therefore, for each original text, we should average the probability of each subtext and obtain final prediction for that piece of news. 
+Metrics: 
+* Accuracy = 0.97
+* Roc Auc Score = 0.99
+* Precision = 0.96
+* F1_score = 0.97
+* Recall = 0.98
+
+![img](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/img.png)
 
 ![results](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/result.png)
-![img](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/img.png)
 
 #### IV.3.2 Logistic Regression
 Compared to the Bert Model, the logistic regression model performed lower with a test accuracy of approximately 96% and an F1 score of 96%. 
@@ -231,10 +241,10 @@ Compared to the Bert Model, the logistic regression model performed lower with a
 * F1_score = 0.96 
 
 * Confusion Matrix
-  # Include image here
+![Confusion Matrix Logistic Regression ](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/lr_confusion_matrix.png)
 
  * ROC Curve
-   # include image here
+![ROC Curve Logistic Regression](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/Roc_curve_lr.png)
 
 #### IV.3.3 Support Vector Machine SVM 
 Compared to the previous two models, the Support Vector Machine model performed better with a training accuracy of 99% and a test accuracy of approximately 97%. Unlike the logistic regression and Bert models, the SVM model had few data preprocessing and may explain the discrepancy in results.  
@@ -250,10 +260,10 @@ Compared to the previous two models, the Support Vector Machine model performed 
 * F1_score = 0.98 
 
 * Confusion matrix
-  # Include image here
+![Confusion Matrix SVM ](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/confusion_matrix_svm.png)
 
  * ROC Curve
-   # include image here
+![ROC Curve SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/roc_curve_svm.png)
 
 ### IV.4 Analysis of Bert Model 
 In this project, BERT is employed as a feature extractor. It takes raw text data as input and produces high-dimensional vectors as output, capturing the semantic meaning and context of the text. As expected, pre-trained on massive text corpora, BERT captured semantic relationships and nuances in language that might be difficult for simpler feature extraction techniques. Our metrics showed great results. Even AUC was shown hugging the top-left corner indicating that our model was performing well. If our planned implementation of the Logistic Regression model achieves high accuracy, precision, recall, and F1-score, it suggests BERT is capturing relevant information for fake news classification. We think that  
