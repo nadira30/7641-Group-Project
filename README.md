@@ -189,7 +189,7 @@ We further extract the coefficients of the logistic regression and SVM models to
 
 The x-axis of the plot below displays the top features, while the y-axis represents their corresponding coefficients. This visualization offers valuable insights into which features have the most significant impact on the model's predictions. It helps interpret the model's decision-making process and aids in understanding the importance of different features from the news data, as well as helping in feature selection, dimensionality reduction, and improving the model’s performance by just focusing on the most important features.  
 
-![Feature Importance for Logistic Regression](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_importance.png)
+![Feature Importance for Logistic Regression](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_lr.png)
 
 ![Feature Importance for SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_svm.png)
 
