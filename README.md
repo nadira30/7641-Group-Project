@@ -80,7 +80,7 @@ In this project, we aimed to develop a robust model for detecting fake news. We 
 1. Logistic regression,  
 2. BERT (Bidirectional Encoder Representations from Transformers), and  
 3. Support Vector Machines (SVM).
-4. 
+   
 This report focuses on the implementation and evaluation of logistic regression as the baseline model and compares the results with BERT and SVM. 
 
 ### III.1 Logistic Regression: 
