@@ -189,15 +189,25 @@ We further extract the coefficients of the logistic regression and SVM models to
 
 The x-axis of the plot below displays the top features, while the y-axis represents their corresponding coefficients. This visualization offers valuable insights into which features have the most significant impact on the model's predictions. It helps interpret the model's decision-making process and aids in understanding the importance of different features from the news data, as well as helping in feature selection, dimensionality reduction, and improving the model’s performance by just focusing on the most important features.  
 
-![Feature Importance for Logistic Regression](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_lr.png)
+<figure align="center">
+  <img src="https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_lr.png"/>
+  <figcaption> Feature Importance for Logistic Regression </figcaption>
+</figure>
 
-![Feature Importance for SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_svm.png)
+<figure align="center">
+  <img src="https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_svm.png"/>
+  <figcaption> Feature Importance for SVM </figcaption>
+</figure>
 
  #### Learning Curve 
  
  We implemented a learning curve for the SVM model to visualize the validation and training score of the model for varying numbers of training samples. This can help us find out how much we benefit from adding more data whether the estimator suffers more from variance error or bias error.  
 
-![Learning Curve for SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/Learning_curve.png)
+<figure align="center">
+  <img src="https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/Learning_curve.png"/>
+  <figcaption> Learning Curve for SVM </figcaption>
+</figure>
+
 
 ### IV.2 Quantitative Metrics
 
