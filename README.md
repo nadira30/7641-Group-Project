@@ -296,12 +296,13 @@ Moving forward, potential next steps involve fine-tuning hyperparameters, explor
 
 
 #### Gantt Chart:
-# To be updated
+
 ![Gantt Chart](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/GanttChart.png)
 
 #### Contribution table:
-# To be updated
+
 ![Contribution Table](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/contribution_table.png)
+
 
 ## References: 
 
