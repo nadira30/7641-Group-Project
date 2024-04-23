@@ -141,9 +141,11 @@ These data cleaning steps ensured that the text data was appropriately formatted
 ###  IV.1 Visualizations 
 
 We used the training set to perform exploratory data analysis. First, we wanted to look at the word count for each news and see if there is a difference between real and fake news. We can see in the below graph that most real news is within 1000 words, and the distribution of word count is skewed to the right.  
+
 ![img3](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/3.png)
 
 As for the fake news, we see some outliers from the below graph making it hard to interpret. So, we plot it again below with the outlier (news that has more than 20,000 words) removed. 
+
 ![img4](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/4.png)
 
 The below graph shows a fake news training dataset with outliers (>20,000 words removed) 
@@ -167,13 +169,17 @@ To gain a better understanding of the sentiments across real vs fake news across
 ![sentiment](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/sentiment_distribution.png)
 
 The plots below show the N-gram analysis conducted to obtain the top 10 n-gram phrases and/or words in real and fake news titles and texts respectively. 
+
 ![n_gram2](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/n_gram2.png)
 
 The plot below shows the clustering of word embeddings for real and fake news. Word2Vec is used to represent words in titles and texts as dense vectors. The clustering algorithm is used to cluster similar titles and texts together and visualize the clusters. 
+
 ![real_clustering](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/real_cluster.png)
+
 ![fake_clustering](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/fake_cluster.png)
 
-Next, we wanted to see the Top “k” word proportion of the real/fake news. In other words, we wanted to see how many of the words used in the news are from the top 10 common words, the top 100, and so on. We hypothesized that since fake news is machine-generated it will likely use many high-frequency words compared to real news. 
+Next, we wanted to see the Top “k” word proportion of the real/fake news. In other words, we wanted to see how many of the words used in the news are from the top 10 common words, the top 100, and so on. We hypothesized that since fake news is machine-generated it will likely use many high-frequency words compared to real news.
+
 ![top_k](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/top_k_proportion.png)
 
 Our analysis confirmed our hypothesis, and we see from the above bar chart that the difference is significant only for the Top 1000 most frequently used words. 
@@ -188,6 +194,7 @@ The x-axis of the plot below displays the top features, while the y-axis represe
 ![Feature Importance for SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/feature_imp_svm.png)
 
  #### Learning Curve 
+ 
  We implemented a learning curve for the SVM model to visualize the validation and training score of the model for varying numbers of training samples. This can help us find out how much we benefit from adding more data whether the estimator suffers more from variance error or bias error.  
 
 ![Learning Curve for SVM](https://raw.githubusercontent.com/nadira30/7641-Group-Project/main/_includes/Learning_curve.png)
